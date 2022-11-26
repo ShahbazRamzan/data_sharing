@@ -1,0 +1,16 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="addForm!">
+
+<select name="trigger" formControlName="trigger" (change)="onSelection($event)" >
+  <option value="1">Config</option>
+  <option value="2">Credential</option>
+</select>
+<app-config *ngIf="selectionId==1"   [getSharingDetails]="sharingDetails" ></app-config>
+<app-credential *ngIf="selectionId==2" [getSharingDetails]="sharingDetails"></app-credential>
+<button type="submit" >
+  Save
+</button>
+<br>
+<hr>
+<button type="button" (click)="getConfig()">getConfig</button>
+<button type="button" (click)="getCredential()">getCredential</button>
+</form>
